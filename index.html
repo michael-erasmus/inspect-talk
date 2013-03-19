@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=1024, user-scalable=no">
+
+	<title>Your deck.js Presentation</title>
+
+	<!-- Required stylesheet -->
+	<link rel="stylesheet" href="core/deck.core.css">
+
+	<!-- Extension CSS files go here. Remove or add as needed. -->
+	<link rel="stylesheet" href="extensions/goto/deck.goto.css">
+	<link rel="stylesheet" href="extensions/menu/deck.menu.css">
+	<link rel="stylesheet" href="extensions/navigation/deck.navigation.css">
+	<link rel="stylesheet" href="extensions/status/deck.status.css">
+	<link rel="stylesheet" href="extensions/hash/deck.hash.css">
+	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
+
+	<!-- Style theme. More available in /themes/style/ or create your own. -->
+	<link rel="stylesheet" href="themes/style/web-2.0.css">
+
+	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
+	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+
+	<!-- Required Modernizr file -->
+	<script src="modernizr.custom.js"></script>
+</head>
+<body class="deck-container">
+
+<!-- Begin slides. Just make elements with a class of slide. -->
+<section class="slide">
+</section>
+<section class="slide">
+  <h1>An apology...</h1>
+</section>
+
+<section class="slide centered-text">
+  <h2>Muizenberg, Cape Town</h2>
+  <img src='images/beach.jpg'></img>
+  <img src='images/beach2.jpg'></img>
+</section>
+
+<section class="slide">
+  <img src='images/board.jpg'></img>
+</section>
+
+<section class="slide centered-text">
+	<h2 class='top-third'>Mixing RubyMotion with CoffeeScript</h2>
+  <h3 class='bottom-third'>Michael Erasmus</h3>
+</section>
+
+<section class="slide">
+	<h1>Uhm...Why?<h1>
+</section>
+
+<section class="slide">
+	<h1>First, a story...</h1>
+</section>
+
+<section class="slide centered-text">
+  <h2 class='url-text'>22seven.com</h2>
+  <img src='images/22seven1.png'></img>
+  <h3 class="slide">Do more with the money you have</h3>
+</section>
+
+<section class="slide">
+  <h2 class='centered-text'>How?</h2>
+  <ol>
+    <li class="slide">The boring part</li>
+    <li class="slide">The hard part</li>
+  </ol>
+  <div class="slide">ALSO THE AWESOME PART!!!!</div>
+</section>
+
+<section class="slide centered-text">
+  <h2>The boring part</h2>
+  <img src='images/screen-scraping.jpg'></img>
+</section>
+
+<section class="slide centered-text">
+  <h2>The <del>hard</del> awesome part</h2>
+  <img src='images/hob.jpg'></img>
+</section>
+
+<section class="slide centered-text">
+  <h2>The <del>hard</del> awesome part</h2>
+  <img src='images/history.jpg'></img>
+</section>
+
+<section class="slide centered-text">
+  <h2>The <del>hard</del> awesome part</h2>
+  <img src='images/plan.png'></img>
+</section>
+
+<section class="slide centered-text">
+  <h2>Early last year:</h2>
+  <h3>We did it! We've launched our site!</h3>
+  <h3>Let's have some beer!</h3>
+</section>
+
+<section class="slide centered-text">
+    <h2>Customers: "Uhm...what about mobile?"</h2>
+    <img src='images/cat.png'></img>
+</section>
+
+<section class="slide centered-text">
+  <h2>RubyMotion to the rescue!</h2>
+  <img src='images/rubymotion.png'></img>
+  <h3 class='slide'>But....</h3>
+</section>
+
+<section class="slide centered-text">
+  <h2>What about...</h2>
+  <div class='image-grid'>
+    <img src='images/android.jpg'></img>
+    <img src='images/html5.png'></img>
+    <img src='images/win8.jpg'></img>
+  </div>
+</section>
+
+<section class="slide centered-text">
+  <h2>Martin Fowler already figured it out</h2>
+  <img src='images/mf.jpeg'></img>
+  <div class='slide'>
+    <img src='images/mf-beer.jpg'></img>
+  </div>
+</section>
+
+<section class="slide centered-text">
+  <h2>Developing software for Multiple Mobile Devices</h2>
+  <h3 class="url-text">martinfowler.com/articles/multiMobile</h3>
+  <img src='images/mf-slide.png'></img>
+</section>
+
+<section class="slide">
+  <h1>tl;dr</h1>
+</section>
+
+<section class="slide centered text">
+  <h2>3 ways to build cross-platform apps</h2>
+  <ul>
+    <li>Native on all platforms 
+      <ul>
+        <li class="slide">Cost</li>
+        <li class="slide">No reuse</li>
+      </ul>
+    </li>
+    <li>Cross-platform toolkits
+      <ul>
+        <li class="slide">Uncanny valley</li>
+        <li class="slide">Another layer of indirection</li>
+      </ul>
+    </li>
+    <li>HTML5 mobile apps
+      <ul>
+        <li class="slide">Non-native UI</li>
+        <li class="slide">Device features</li>
+        <li class="slide">No app store</li>
+      </ul>
+    </li>
+  </ul>
+</section>
+
+<section class="slide centered-text">
+  <h2>Is there another way?</h2>
+  <h3 class='slide'>Hybrid apps!</h3>
+  <h3 class='slide'>Native + JS<h3>
+</section>
+
+<section class="slide">
+  <img id='circles' src='images/circles.png'></img>
+  <img id='js-body' src='images/body.png'></img>
+</section>
+
+<section class='slide centered-text'>
+  <h2>Sounds easy, right?</h2>
+  <h3 class='slide'>Well it's not...</h3>
+  <p class='slide'>Building resuable code with no unnecessary duplication is hard</p>
+  <p class='slide'>But the benefits are huge</p>
+</section>
+
+<section class='slide'>
+  <h1>Lets see some code!</h1>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>2 approaches to running JS</h2>
+  <ul>
+    <li class='slide'>With a browser (UIWebView)</li>
+    <li class='slide'>Browserless</li>
+  </ul>
+</section>
+
+
+<section class='slide'>
+  <h2 class='centered-text'>UIWebView</h2>
+  
+</section>
+<!-- End slides. -->
+
+
+<!-- Begin extension snippets. Add or remove as needed. -->
+
+<!-- deck.navigation snippet -->
+<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+
+<!-- deck.status snippet -->
+<p class="deck-status">
+	<span class="deck-status-current"></span>
+	/
+	<span class="deck-status-total"></span>
+</p>
+
+<!-- deck.goto snippet -->
+<form action="." method="get" class="goto-form">
+	<label for="goto-slide">Go to slide:</label>
+	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+	<datalist id="goto-datalist"></datalist>
+	<input type="submit" value="Go">
+</form>
+
+<!-- deck.hash snippet -->
+<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
+
+<!-- End extension snippets. -->
+
+
+<!-- Required JS files. -->
+<script src="jquery-1.7.2.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="core/deck.core.js"></script>
+<script src="extensions/hash/deck.hash.js"></script>
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+	$(function() {
+		$.deck('.slide');
+	});
+</script>
+</body>
+</html>
