@@ -2,7 +2,7 @@
 .deck-container {
   font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
   font-size: 1.75em;
-  background: #6F96AA;
+  background: 000;
   /* Old browsers */
   /*background: -moz-linear-gradient(top, #f4fafe 0%, #ccf0f0 100%);*/
   /*[> FF3.6+ <]*/
@@ -37,7 +37,7 @@
   color: #08455f;
 }
 .deck-container .slide h2 {
-  color:#08455f; 
+  color:#08455f;
   /*color: #0b7495;*/
   border-bottom: 0;
 }
@@ -213,40 +213,4 @@
   -moz-box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 0 15px 10px -10px rgba(0, 0, 0, 0.5), 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
 }
-.url-text{
-  font-family: Verdana, Geneva, sans-serif !important;
-}
 
-.top-third{
-  position: absolute;
-  top: 30%;
-}
-
-.bottom-third{
-  text-align: center !important;
-  position: absolute !important;
-  top: 60% !important;
-}
-
-.image-grid {
-  width:95%; 
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.image-grid img{
-  display:inline;
-}
-
-#circles {
-  position: absolute;
-  left: 20% !important;
-  top: 2% !important;
-}
-
-#js-body{
-  position: absolute;
-  left: 27% !important;
-  top: 10.5% !important;
-}

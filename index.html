@@ -19,13 +19,17 @@
 	<link rel="stylesheet" href="extensions/scale/deck.scale.css">
 
 	<!-- Style theme. More available in /themes/style/ or create your own. -->
-	<link rel="stylesheet" href="themes/style/web-2.0.css">
+	<link rel="stylesheet" href="themes/style/neon.css">
+  <link rel="stylesheet" href="themes/style/custom.css">
 
 	<!-- Transition theme. More available in /themes/transition/ or create your own. -->
-	<link rel="stylesheet" href="themes/transition/horizontal-slide.css">
+	<link rel="stylesheet" href="themes/transition/fade.css">
 
 	<!-- Required Modernizr file -->
 	<script src="modernizr.custom.js"></script>
+
+  <link rel="stylesheet" href="highlight.js/styles/default.css">
+  <script src="highlight.js/highlight.pack.js"></script>
 </head>
 <body class="deck-container">
 
@@ -47,8 +51,14 @@
 </section>
 
 <section class="slide centered-text">
+  <h2 class="centered-text">Michael Erasmus</h3>
+  <h3>@michael_erasmus</h3>
+  <h3>motioncasts.tv</h3>
+  <img src='images/book.jpg'></img>
+</section>
+
+<section class="slide centered-text">
 	<h2 class='top-third'>Mixing RubyMotion with CoffeeScript</h2>
-  <h3 class='bottom-third'>Michael Erasmus</h3>
 </section>
 
 <section class="slide">
@@ -68,41 +78,42 @@
 <section class="slide">
   <h2 class='centered-text'>How?</h2>
   <ol>
-    <li class="slide">The boring part</li>
-    <li class="slide">The hard part</li>
+    <li class="slide">Collect and aggregate user's financial data</li>
+    <li class="slide">Do Awesome Things with it</li>
   </ol>
-  <div class="slide">ALSO THE AWESOME PART!!!!</div>
 </section>
 
 <section class="slide centered-text">
-  <h2>The boring part</h2>
-  <img src='images/screen-scraping.jpg'></img>
-</section>
-
-<section class="slide centered-text">
-  <h2>The <del>hard</del> awesome part</h2>
-  <img src='images/hob.jpg'></img>
-</section>
-
-<section class="slide centered-text">
-  <h2>The <del>hard</del> awesome part</h2>
-  <img src='images/history.jpg'></img>
-</section>
-
-<section class="slide centered-text">
-  <h2>The <del>hard</del> awesome part</h2>
   <img src='images/plan.png'></img>
+</section>
+
+<section class="slide centered-text">
+  <img src='images/inout.png'></img>
+</section>
+
+<section class="slide centered-text">
+  <img src='images/spendinggroups.png'></img>
+</section>
+
+<section class="slide centered-text">
+  <img src='images/transactions.png'></img>
 </section>
 
 <section class="slide centered-text">
   <h2>Early last year:</h2>
   <h3>We did it! We've launched our site!</h3>
   <h3>Let's have some beer!</h3>
+  <img src='images/beer.jpg'></img>
 </section>
 
 <section class="slide centered-text">
-    <h2>Customers: "Uhm...what about mobile?"</h2>
+    <h2>Customers:</h2>
+    <h2>"Uhm...what about mobile?"</h2>
     <img src='images/cat.png'></img>
+</section>
+
+<section class="slide centered-text">
+  <img class='middle' src='images/wipeout.jpg'></img>
 </section>
 
 <section class="slide centered-text">
@@ -139,34 +150,73 @@
 </section>
 
 <section class="slide centered text">
-  <h2>3 ways to build cross-platform apps</h2>
+  <h2>3 ways of building cross-platform apps</h2>
+  <img src='images/xplatform.png'></img>
+</section>
+
+<section class="slide centered text">
+  <h2>Native on all platforms</h2>
   <ul>
-    <li>Native on all platforms 
-      <ul>
-        <li class="slide">Cost</li>
-        <li class="slide">No reuse</li>
-      </ul>
-    </li>
-    <li>Cross-platform toolkits
-      <ul>
-        <li class="slide">Uncanny valley</li>
-        <li class="slide">Another layer of indirection</li>
-      </ul>
-    </li>
-    <li>HTML5 mobile apps
-      <ul>
-        <li class="slide">Non-native UI</li>
-        <li class="slide">Device features</li>
-        <li class="slide">No app store</li>
-      </ul>
-    </li>
+    <li class="slide">Great user experience</li>
+    <li class="slide">No restrictions</li>
+    <li class="slide">Close to the metal</li>
+  </ul>
+</section>
+
+<section class="slide centered text">
+  <h2>But...</h2>
+  <ul>
+    <li class="slide">Cost</li>
+    <li class="slide">No reuse</li>
+  </ul>
+</section>
+
+<section class="slide centered text">
+  <h2>Cross-platform toolkits</h2>
+    <ul>
+      <li class="slide">Uhm, works on different platforms</li>
+      <li class="slide">Shared code base</li>
+      <li class="slide">Standard web technology</li>
+    </ul>
+  </li>
+</section>
+
+<section class="slide centered text">
+  <h2>But...</h2>
+    <ul>
+      <li class="slide">Another layer of indirection</li>
+      <li class="slide">Uncanny valley</li>
+    </ul>
+  </li>
+</section>
+
+<section class="slide centered text">
+  <img src='images/uncanny-valley.jpg'></img>
+</section>
+
+<section class="slide centered text">
+  <h2>HTML5 mobile apps</h2>
+  <ul>
+    <li class="slide">Really works everywhere</li>
+    <li class="slide">Ease of development, deployment</li>
+  </ul>
+</section>
+
+<section class="slide centered text">
+  <h2>But...</h2>
+  <ul>
+    <li class="slide">Non-native UI</li>
+    <li class="slide">Device features</li>
+    <li class="slide">No app store</li>
   </ul>
 </section>
 
 <section class="slide centered-text">
   <h2>Is there another way?</h2>
-  <h3 class='slide'>Hybrid apps!</h3>
-  <h3 class='slide'>Native + JS<h3>
+  <ul>
+    <li class="slide">Hybrid apps!</li>
+    <li class='slide'>Native + JS</li>
+  </ul>
 </section>
 
 <section class="slide">
@@ -177,12 +227,14 @@
 <section class='slide centered-text'>
   <h2>Sounds easy, right?</h2>
   <h3 class='slide'>Well it's not...</h3>
-  <p class='slide'>Building resuable code with no unnecessary duplication is hard</p>
-  <p class='slide'>But the benefits are huge</p>
+  <ul>
+    <li class='slide'>Building resuable code with no unnecessary duplication is hard</li>
+    <li class='slide'>But the benefits are huge</li>
+  </ul>
 </section>
 
 <section class='slide'>
-  <h1>Lets see some code!</h1>
+  <h1>Let's see some code!</h1>
 </section>
 
 <section class='slide'>
@@ -196,8 +248,164 @@
 
 <section class='slide'>
   <h2 class='centered-text'>UIWebView</h2>
-  
+  <div class='code language-ruby'>
+    <pre>
+      class JSController < UIViewController
+        def loadView(&block)
+          @web_view = UIWebView.alloc.init
+          @web_view.delegate = self
+        end
+      end
+    </pre>
+  </div>
 </section>
+
+
+<section class='slide'>
+  <h2 class='centered-text'>UIWebView</h2>
+  <div class='code language-ruby'>
+    <pre class="language-ruby">
+    class JSController < UIViewController
+
+      def loadView(&block)
+        @web_view = UIWebView.alloc.init
+        @web_view.delegate = self
+
+        path = "index.html".resource_url
+        file_url = NSURL.fileURLWithPath(path)
+        request = NSURLRequest.requestWithURL(file_url)
+
+        @web_view.loadRequest(request)
+      end
+    end
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>The HTML</h2>
+  <div class='code language-html'>
+    <pre>
+      <code>
+      &lt!;DOCTYPE html&gt;
+      &lt;html lang="en"&gt;
+        &lt;head&gt;
+          &lt;meta charset="utf-8" / &gt;
+          &lt;title&gt;WebView Document&lt;/title&gt;
+          &lt;script src='nativeBridge.js'&gt;&lt;/script&gt;
+          &lt;script src='jquery.js'&gt;&lt;/script&gt;
+          &lt;script src='app.js'&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;
+      </code>
+    </pre>
+  </div>
+</section>
+
+
+<section class='slide'>
+  <h2 class='centered-text'>Calling JavaScript</h2>
+  <div class='code language-ruby'>
+    <pre class="language-ruby">
+    class JSController < UIViewController
+      ###
+      def call_js(func)
+        js = "#{func}();"
+        @web_view.stringByEvaluatingJavaScriptFromString(js)
+      end
+    end
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>Calling back into RubyMotion</h2>
+  <div class='code language-ruby'>
+    <pre>
+    class JSController < UIViewController
+      ###
+      def call_js_async(func, args, &block)
+        @callbacks["#{func}Result"] = &block
+        js = "#{func}(#{args});"
+        @web_view.stringByEvaluatingJavaScriptFromString(js)
+      end
+    end
+
+    ##
+    js_controller.call_js_async("square", 5) do |n|
+      puts "square of 5 is #{n}}"
+    end
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>JS function calls back to NativeBridge</h2>
+  <div class='code language-coffeescript'>
+    <pre>
+      square = (n) ->NativeBridge.call('squareResult', n * n)
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>NativeBridge 'navigates' to URL, passing in callback + args</h2>
+  <div class='code language-coffeescript'>
+    <pre class="language-coffeecript">
+      NativeBridge::call = (callBackId, args) ->
+        iframe = document.createElement "IFRAME"
+        src = "js-bridge-frame::#{callBackId}::#{args}"
+        iframe.setAttribute "src", src
+        document.documentElement.appendChild iframe
+        iframe.parentNode.removeChild iframe
+        iframe = null
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>Back in the WebView...</h2>
+  <div class='code language-ruby'>
+    <pre>
+      def webView(view, shouldStartLoadWithRequest:request, navigationType:type)
+        requestString = inRequest.URL.absoluteString
+
+        if(requestString.hasPrefix("js-bridge-frame"))
+          components = requestString.split("::")
+          callback_id, args = components[1], components[2]
+
+          @callbacks[callback_id](args)
+          return false
+        end
+        true
+      end
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>So this works pretty well...but</h2>
+  <ul>
+    <li class="slide">All data returned ends up as string</li>
+    <li class='slide'>The result needs to be URL decoded (this can be slow)</li>
+    <li class='slide'>Everything must be async, lots of callbacks</li>
+  </ul>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>Link to github with more elaborate example</h2>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>Plan B - JavascriptCore<h2>
+  <div class="slide centered-text">
+    <img src='images/ejecta.png'></img>
+    <h3>impactjs.com/ejecta</h3>
+  </div>
+</section>
+
 <!-- End slides. -->
 
 
@@ -241,11 +449,18 @@
 <script src="extensions/navigation/deck.navigation.js"></script>
 <script src="extensions/scale/deck.scale.js"></script>
 
-<!-- Initialize the deck. You can put this in an external file if desired. -->
+<!-- Initialize the deck. -->
 <script>
 	$(function() {
 		$.deck('.slide');
 	});
 </script>
+
+<!-- Initialize the script.js. -->
+  <script>
+    $(document).ready(function() {
+      $('.code').each(function(i, e) {hljs.highlightBlock(e)});
+      });
+  </script>
 </body>
 </html>

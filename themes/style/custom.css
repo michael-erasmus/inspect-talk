@@ -1,0 +1,75 @@
+
+.url-text{
+  font-family: Verdana, Geneva, sans-serif !important;
+}
+
+.top-third{
+  position: absolute;
+  top: 30%;
+}
+
+.bottom-third{
+  text-align: center !important;
+  position: absolute !important;
+  top: 60% !important;
+}
+
+.image-grid {
+  width:95%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-grid img{
+  display:inline;
+}
+
+#circles {
+  position: absolute;
+  left: 20% !important;
+  top: 2% !important;
+}
+
+#js-body{
+  position: absolute;
+  left: 27% !important;
+  top: 10.5% !important;
+}
+
+li {
+  font-size: 70px !important;
+  text-align: center !important;
+}
+
+ul li {
+  list-style-type: none !important;
+}
+
+/** COMMENT/DELETE THIS TO GET THE ARROWS BACK **/
+.deck-prev-link {
+  display: none !important;
+}
+
+.deck-next-link {
+  display: none !important;
+}
+
+.slide h1 {
+  text-align: center;
+}
+
+.slide h2 {
+  text-align: center;
+}
+
+.slide h3 {
+  text-align: center;
+}
+
+.middle{
+  vertical-align:middle !important;
+}
+.slide li {
+  text-align: center;
+}
