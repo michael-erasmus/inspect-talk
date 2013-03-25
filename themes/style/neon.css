@@ -30,12 +30,13 @@
 .deck-container .slide pre {
   border-color: #333;
 }
-.deck-container .slide pre code {
+/*.deck-container .slide pre code {
   color: #fff;
 }
 .deck-container .slide code {
   color: #f0a;
 }
+*/
 .deck-container .slide blockquote {
   font-size: 2em;
   padding: 1em 2em;

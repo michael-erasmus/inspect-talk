@@ -92,7 +92,7 @@
 </section>
 
 <section class="slide centered-text">
-  <img src='images/spendinggroups.png'></img>
+  <img src='images/spending-groups.png'></img>
 </section>
 
 <section class="slide centered-text">
@@ -250,12 +250,14 @@
   <h2 class='centered-text'>UIWebView</h2>
   <div class='code language-ruby'>
     <pre>
-      class JSController < UIViewController
-        def loadView(&block)
-          @web_view = UIWebView.alloc.init
-          @web_view.delegate = self
+      <code>
+        class JSController < UIViewController
+          def loadView(&block)
+            @web_view = UIWebView.alloc.init
+            @web_view.delegate = self
+          end
         end
-      end
+      </code>
     </pre>
   </div>
 </section>
@@ -265,19 +267,21 @@
   <h2 class='centered-text'>UIWebView</h2>
   <div class='code language-ruby'>
     <pre class="language-ruby">
-    class JSController < UIViewController
+      <code>
+      class JSController < UIViewController
 
-      def loadView(&block)
-        @web_view = UIWebView.alloc.init
-        @web_view.delegate = self
+        def loadView(&block)
+          @web_view = UIWebView.alloc.init
+          @web_view.delegate = self
 
-        path = "index.html".resource_url
-        file_url = NSURL.fileURLWithPath(path)
-        request = NSURLRequest.requestWithURL(file_url)
+          path = "index.html".resource_url
+          file_url = NSURL.fileURLWithPath(path)
+          request = NSURLRequest.requestWithURL(file_url)
 
-        @web_view.loadRequest(request)
+          @web_view.loadRequest(request)
+        end
       end
-    end
+      </code>
     </pre>
   </div>
 </section>
@@ -309,13 +313,15 @@
   <h2 class='centered-text'>Calling JavaScript</h2>
   <div class='code language-ruby'>
     <pre class="language-ruby">
-    class JSController < UIViewController
-      ###
-      def call_js(func)
-        js = "#{func}();"
-        @web_view.stringByEvaluatingJavaScriptFromString(js)
+      <code>
+      class JSController < UIViewController
+        ###
+        def call_js(func)
+          js = "#{func}();"
+          @web_view.stringByEvaluatingJavaScriptFromString(js)
+        end
       end
-    end
+      </code>
     </pre>
   </div>
 </section>
@@ -324,19 +330,21 @@
   <h2 class='centered-text'>Calling back into RubyMotion</h2>
   <div class='code language-ruby'>
     <pre>
-    class JSController < UIViewController
-      ###
-      def call_js_async(func, args, &block)
-        @callbacks["#{func}Result"] = &block
-        js = "#{func}(#{args});"
-        @web_view.stringByEvaluatingJavaScriptFromString(js)
+      <code>
+      class JSController < UIViewController
+        ###
+        def call_js_async(func, args, &block)
+          @callbacks["#{func}Result"] = &block
+          js = "#{func}(#{args});"
+          @web_view.stringByEvaluatingJavaScriptFromString(js)
+        end
       end
-    end
 
-    ##
-    js_controller.call_js_async("square", 5) do |n|
-      puts "square of 5 is #{n}}"
-    end
+      ##
+      js_controller.call_js_async("square", 5) do |n|
+        puts "square of 5 is #{n}}"
+      end
+      </code>
     </pre>
   </div>
 </section>
@@ -345,7 +353,9 @@
   <h2 class='centered-text'>JS function calls back to NativeBridge</h2>
   <div class='code language-coffeescript'>
     <pre>
+      <code>
       square = (n) ->NativeBridge.call('squareResult', n * n)
+      </code>
     </pre>
   </div>
 </section>
@@ -354,6 +364,7 @@
   <h2 class='centered-text'>NativeBridge 'navigates' to URL, passing in callback + args</h2>
   <div class='code language-coffeescript'>
     <pre class="language-coffeecript">
+      <code>
       NativeBridge::call = (callBackId, args) ->
         iframe = document.createElement "IFRAME"
         src = "js-bridge-frame::#{callBackId}::#{args}"
@@ -361,6 +372,7 @@
         document.documentElement.appendChild iframe
         iframe.parentNode.removeChild iframe
         iframe = null
+      </code>
     </pre>
   </div>
 </section>
@@ -369,6 +381,7 @@
   <h2 class='centered-text'>Back in the WebView...</h2>
   <div class='code language-ruby'>
     <pre>
+      <code>
       def webView(view, shouldStartLoadWithRequest:request, navigationType:type)
         requestString = inRequest.URL.absoluteString
 
@@ -381,6 +394,7 @@
         end
         true
       end
+      </code>
     </pre>
   </div>
 </section>
