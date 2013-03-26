@@ -25,16 +25,25 @@
   display:inline;
 }
 
-#circles {
-  position: absolute;
-  left: 20% !important;
-  top: 2% !important;
+
+.circle{
+  margin: 50px 0 0 100px !important;
+  display:inline !important;
 }
 
-#js-body{
-  position: absolute;
-  left: 27% !important;
-  top: 10.5% !important;
+.js-body.slide.deck-previous{
+  display: none;
+}
+
+.js-body {
+/*  position: absolute !important;
+  display: inline !important;
+  left: 150px !important;
+  top: 2% !important;
+*/
+  margin: 0px 0 0 -85px !important;
+  background: none !important;
+  display: inline !important;
 }
 
 li {
@@ -46,7 +55,7 @@ ul li {
   list-style-type: none !important;
 }
 
-/** COMMENT/DELETE THIS TO GET THE ARROWS BACK **/
+/** COMMENT/DELETE THIS TO GET THE BACK/NEXT ARROWS BACK **/
 .deck-prev-link {
   display: none !important;
 }
@@ -74,7 +83,4 @@ ul li {
   text-align: center;
 }
 
-/*.slide pre {
-  background-color: #fff !important;
-}
-*/
+

@@ -48,6 +48,7 @@
 
 <section class="slide">
   <img src='images/board.jpg'></img>
+  <h3 class='slide'>Thanks, honey!</h3>
 </section>
 
 <section class="slide centered-text">
@@ -113,7 +114,7 @@
 </section>
 
 <section class="slide centered-text">
-  <img class='middle' src='images/wipeout.jpg'></img>
+  <img style='margin-top:175px' src='images/wipeout.jpg'></img>
 </section>
 
 <section class="slide centered-text">
@@ -191,7 +192,7 @@
 </section>
 
 <section class="slide centered text">
-  <img src='images/uncanny-valley.jpg'></img>
+  <img style="margin-top:40px" src='images/uncanny-valley.jpg'></img>
 </section>
 
 <section class="slide centered text">
@@ -220,9 +221,21 @@
 </section>
 
 <section class="slide">
-  <img id='circles' src='images/circles.png'></img>
-  <img id='js-body' src='images/body.png'></img>
-</section>
+  <div>
+    <img class='circle' src='images/circle1.png'></img>
+    <img id='js-body0' class='js-body slide' src='images/body.png'></img>
+  </div>
+  <div>
+    <img class='circle' src='images/circle2.png'></img>
+    <img id='js-body1' class='js-body slide' src='images/body.png'></img>
+ </div>
+  <div>
+    <img class='circle' src='images/circle3.png'></img>
+    <img id='js-body3' class='js-body slide' src='images/body.png'></img>
+  </div>
+<!--   <img slide id='js-body1' class='js-body slide' src='images/body.png'></img>
+  <img slide id='js-body2' class='js-body slide' src='images/body.png'></img>
+ --></section>
 
 <section class='slide centered-text'>
   <h2>Sounds easy, right?</h2>
@@ -382,21 +395,26 @@
   <div class='code language-ruby'>
     <pre>
       <code>
-      def webView(view, shouldStartLoadWithRequest:request, navigationType:type)
-        requestString = inRequest.URL.absoluteString
+def webView(view, shouldStartLoadWithRequest:r, navigationType:t)
+  request = r
+  requestString = request.URL.absoluteString
 
-        if(requestString.hasPrefix("js-bridge-frame"))
-          components = requestString.split("::")
-          callback_id, args = components[1], components[2]
+  if(requestString.hasPrefix("js-bridge-frame"))
+    components = request
+    callback_id, args = components[1], components[2]
 
-          @callbacks[callback_id](args)
-          return false
-        end
-        true
-      end
+    @callbacks[callback_id](args)
+    return false
+  end
+  true
+end
       </code>
     </pre>
   </div>
+</section>
+
+<section class='slide'>
+  <img style="margin-top: 175px;" src='images/surfing.jpg'></img>
 </section>
 
 <section class='slide'>
