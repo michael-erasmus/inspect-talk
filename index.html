@@ -5,7 +5,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=1024, user-scalable=no">
 
-	<title>Your deck.js Presentation</title>
+	<title>Mixing CoffeeScript with RubyMotion</title>
 
 	<!-- Required stylesheet -->
 	<link rel="stylesheet" href="core/deck.core.css">
@@ -48,18 +48,32 @@
 
 <section class="slide">
   <img src='images/board.jpg'></img>
-  <h3 class='slide'>Thanks, honey!</h3>
+  <h3>Thanks, honey!</h3>
 </section>
 
 <section class="slide centered-text">
   <h2 class="centered-text">Michael Erasmus</h3>
-  <h3>@michael_erasmus</h3>
-  <h3>motioncasts.tv</h3>
-  <img src='images/book.jpg'></img>
+  <div class="center">
+      <img style="float:left;margin-left: 400px;" src='images/twitter.png'></img>
+      <h3 style="float:left;margin: 25px 0 0 20px;">@michael_erasmus</h3>
+  </div>
+  <div class="center" style="clear: both;">
+      <img style="float:left;margin-left: 400px;" src="images/github.png">
+      <h3 style="float:left;margin: 25px 0 0 20px;">github.com/michael-erasmus</h3>
+  </div>
+
+  <div class="center" style="clear: both;">
+      <img style="float:left;margin-left: 400px;" src="images/motioncasts.png">
+      <h3 style="float:left;margin: 25px 0 0 20px;">motioncasts.tv</h3>
+  </div>
+
+  <div class="center" style='clear: both;'>
+    <img src='images/book.jpg'></img>
+  </div>
 </section>
 
 <section class="slide centered-text">
-	<h2 class='top-third'>Mixing RubyMotion with CoffeeScript</h2>
+	<h2 class='top-third'>Mixing CoffeeScript with RubyMotion</h2>
 </section>
 
 <section class="slide">
@@ -152,7 +166,7 @@
 
 <section class="slide centered text">
   <h2>3 ways of building cross-platform apps</h2>
-  <img src='images/xplatform.png'></img>
+  <img src='images/xplatform2.png'></img>
 </section>
 
 <section class="slide centered text">
@@ -265,7 +279,7 @@
     <pre>
       <code>
         class JSController < UIViewController
-          def loadView(&block)
+          def load_web_view
             @web_view = UIWebView.alloc.init
             @web_view.delegate = self
           end
@@ -277,13 +291,12 @@
 
 
 <section class='slide'>
-  <h2 class='centered-text'>UIWebView</h2>
   <div class='code language-ruby'>
     <pre class="language-ruby">
       <code>
       class JSController < UIViewController
 
-        def loadView(&block)
+        def load_web_view
           @web_view = UIWebView.alloc.init
           @web_view.delegate = self
 
@@ -300,11 +313,10 @@
 </section>
 
 <section class='slide'>
-  <h2 class='centered-text'>The HTML</h2>
   <div class='code language-html'>
     <pre>
       <code>
-      &lt!;DOCTYPE html&gt;
+      &lt;!DOCTYPE html&gt;
       &lt;html lang="en"&gt;
         &lt;head&gt;
           &lt;meta charset="utf-8" / &gt;
@@ -340,22 +352,44 @@
 </section>
 
 <section class='slide'>
-  <h2 class='centered-text'>Calling back into RubyMotion</h2>
+  <h2 class='centered-text'>Calling back into RubyMotion??</h2>
   <div class='code language-ruby'>
-    <pre>
+    <pre class="language-ruby">
+      <code>
+      @web_view.addCallBack(...)
+      @web_view.stringByEvaluatingJavaScriptFromString(js)
+      </code>
+    </pre>
+  </div>
+  <h3 class='slide'>That would be too easy...</h3>
+</section>
+
+<section class='slide'>
+  <div class='code language-ruby'>
+    <pre class="language-ruby">
       <code>
       class JSController < UIViewController
-        ###
+
         def call_js_async(func, args, &block)
           @callbacks["#{func}Result"] = &block
           js = "#{func}(#{args});"
+
           @web_view.stringByEvaluatingJavaScriptFromString(js)
         end
-      end
 
-      ##
+      end
+      </code>
+    </pre>
+  </div>
+</section>
+
+
+<section class='slide'>
+  <div class='code language-ruby'>
+    <pre class="language-ruby">
+      <code>
       js_controller.call_js_async("square", 5) do |n|
-        puts "square of 5 is #{n}}"
+        puts "square of 5 is #{n}"
       end
       </code>
     </pre>
@@ -396,11 +430,10 @@
     <pre>
       <code>
 def webView(view, shouldStartLoadWithRequest:r, navigationType:t)
-  request = r
-  requestString = request.URL.absoluteString
+  request = r.URL.absoluteString
 
-  if(requestString.hasPrefix("js-bridge-frame"))
-    components = request
+  if(request.hasPrefix("js-bridge-frame"))
+    components = request.split("::")
     callback_id, args = components[1], components[2]
 
     @callbacks[callback_id](args)
@@ -414,7 +447,8 @@ end
 </section>
 
 <section class='slide'>
-  <img style="margin-top: 175px;" src='images/surfing.jpg'></img>
+  <h2 class='centered-text'>Phew... can I see a picture?</h2>
+  <img src='images/diagram.png'></img>
 </section>
 
 <section class='slide'>
@@ -427,19 +461,73 @@ end
 </section>
 
 <section class='slide'>
-  <h2 class='centered-text'>Link to github with more elaborate example</h2>
+  <img style="margin-top: 175px;" src='images/surfing.jpg'></img>
 </section>
 
 <section class='slide'>
-  <h2 class='centered-text'>Plan B - JavascriptCore<h2>
+  <h2 class='centered-text'>An example</h2>
+  <h3>https://github.com/michael-erasmus/motion-js</h3>
+  <h3>https://github.com/michael-erasmus/motion-js/tree/master/example</h3>
+</section>
+
+<section class='slide'>
+  <h2 class='centered-text'>A different approach - JavascriptCore<h2>
   <div class="slide centered-text">
     <img src='images/ejecta.png'></img>
     <h3>impactjs.com/ejecta</h3>
   </div>
+  <h3 class="slide">Unchartered territory</h3>
+</section>
+
+<section class='slide'>
+  <h2>Why CoffeeScript?</h2>
+  <img src='images/coffeescript.jpg'></img>
+</section>
+
+<section class='slide'>
+  <h3>Shorter, more concise, beautiful code</h3>
+  <img src='images/cs-vs-js.png'></img>
+  <h3 class="slide">Feels more like Ruby</h3>
+</section>
+
+<section class='slide'>
+  <h2>Real classes</h2>
+  <div class='code language-coffeescript'>
+    <pre>
+      <code>
+    class Animal
+      constructor: (@name) ->
+
+      move: (meters) ->
+        alert @name + " moved #{meters}m."
+
+    class Snake extends Animal
+      move: ->
+        alert "Slithering..."
+        super 5
+
+    class Horse extends Animal
+      move: ->
+        alert "Galloping..."
+        super 45
+
+    sam = new Snake "Sammy the Python"
+    tom = new Horse "Tommy the Palomino"
+
+    sam.move()
+    tom.move()
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+<!-- => helps with lots of async code, functional style of programming -->
+  <h2>=> Fat arrow is awesome</h2>
+  <img src='images/fat-arrow.png'></img>
 </section>
 
 <!-- End slides. -->
-
 
 <!-- Begin extension snippets. Add or remove as needed. -->
 
