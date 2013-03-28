@@ -92,3 +92,8 @@ ul li {
 }
 
 
+.highlighted-code{
+  display:inline !important;
+  background: #ff1 !important;
+}
+

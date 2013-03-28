@@ -46,9 +46,14 @@
   <img src='images/beach2.jpg'></img>
 </section>
 
+
 <section class="slide">
   <img src='images/board.jpg'></img>
   <h3>Thanks, honey!</h3>
+</section>
+
+<section class="slide">
+  <img src='images/mimi-surfing.jpg'></img>
 </section>
 
 <section class="slide centered-text">
@@ -132,6 +137,10 @@
 </section>
 
 <section class="slide centered-text">
+  <img src='images/iphone.png'></img>
+</section>
+
+<section class="slide centered-text">
   <h2>RubyMotion to the rescue!</h2>
   <img src='images/rubymotion.png'></img>
   <h3 class='slide'>But....</h3>
@@ -210,6 +219,10 @@
 </section>
 
 <section class="slide centered text">
+  <img style="margin-top:40px" src='images/rick.jpg'></img>
+</section>
+
+<section class="slide centered text">
   <h2>HTML5 mobile apps</h2>
   <ul>
     <li class="slide">Really works everywhere</li>
@@ -220,9 +233,9 @@
 <section class="slide centered text">
   <h2>But...</h2>
   <ul>
+    <li class="slide">No app store = No trust</li>
     <li class="slide">Non-native UI</li>
     <li class="slide">Device features</li>
-    <li class="slide">No app store</li>
   </ul>
 </section>
 
@@ -247,9 +260,14 @@
     <img class='circle' src='images/circle3.png'></img>
     <img id='js-body3' class='js-body slide' src='images/body.png'></img>
   </div>
-<!--   <img slide id='js-body1' class='js-body slide' src='images/body.png'></img>
-  <img slide id='js-body2' class='js-body slide' src='images/body.png'></img>
- --></section>
+ </section>
+
+<section class='slide centered-text'>
+  <h2>What goes into your body?</h2>
+  <h3 class="slide">Anything non UI related</h3>
+  <h3 class="slide">Resuable domain logic</h3>
+  <h3 class="slide">Lots of small composable functions</h3>
+</section>
 
 <section class='slide centered-text'>
   <h2>Sounds easy, right?</h2>
@@ -261,29 +279,35 @@
 </section>
 
 <section class='slide'>
+  <img src='images/big-wave.jpg'></img>
+</section>
+
+<section class='slide'>
   <h1>Let's see some code!</h1>
 </section>
 
 <section class='slide'>
-  <h2 class='centered-text'>2 approaches to running JS</h2>
-  <ul>
-    <li class='slide'>With a browser (UIWebView)</li>
-    <li class='slide'>Browserless</li>
-  </ul>
+  <img src='images/choker.jpg'></img>
 </section>
 
-
 <section class='slide'>
-  <h2 class='centered-text'>UIWebView</h2>
   <div class='code language-ruby'>
-    <pre>
+    <pre class="language-ruby">
       <code>
-        class JSController < UIViewController
-          def load_web_view
-            @web_view = UIWebView.alloc.init
-            @web_view.delegate = self
-          end
+      class JSController < UIViewController
+
+        def load_web_view
+          <div class='highlighted-code'>@web_view = UIWebView.alloc.init</div>
+          <div class='highlighted-code'>@web_view.delegate = self</div>
+
+
+          path = "index.html".resource_url
+          file_url = NSURL.fileURLWithPath(path)
+          request = NSURLRequest.requestWithURL(file_url)
+
+          @web_view.loadRequest(request)
         end
+      end
       </code>
     </pre>
   </div>
@@ -300,11 +324,36 @@
           @web_view = UIWebView.alloc.init
           @web_view.delegate = self
 
+
+          <div class='highlighted-code'>path = "index.html".resource_url</div>
+          <div class='highlighted-code'>file_url = NSURL.fileURLWithPath(path)</div>
+          <div class='highlighted-code'>request = NSURLRequest.requestWithURL(file_url)</div>
+
+          @web_view.loadRequest(request)
+        end
+      end
+      </code>
+    </pre>
+  </div>
+</section>
+
+
+<section class='slide'>
+  <div class='code language-ruby'>
+    <pre class="language-ruby">
+      <code>
+      class JSController < UIViewController
+
+        def load_web_view
+          @web_view = UIWebView.alloc.init
+          @web_view.delegate = self
+
+
           path = "index.html".resource_url
           file_url = NSURL.fileURLWithPath(path)
           request = NSURLRequest.requestWithURL(file_url)
 
-          @web_view.loadRequest(request)
+          <div class='highlighted-code'>@web_view.loadRequest(request)</div>
         end
       end
       </code>
@@ -343,7 +392,7 @@
         ###
         def call_js(func)
           js = "#{func}();"
-          @web_view.stringByEvaluatingJavaScriptFromString(js)
+          <div class='highlighted-code'>@web_view.stringByEvaluatingJavaScriptFromString(js)</div>
         end
       end
       </code>
@@ -357,7 +406,7 @@
     <pre class="language-ruby">
       <code>
       @web_view.addCallBack(...)
-      @web_view.stringByEvaluatingJavaScriptFromString(js)
+      <div class='highlighted-code'>@web_view.stringByEvaluatingJavaScriptFromString(js)</div>
       </code>
     </pre>
   </div>
@@ -371,7 +420,7 @@
       class JSController < UIViewController
 
         def call_js_async(func, args, &block)
-          @callbacks["#{func}Result"] = &block
+          <div class='highlighted-code'>@callbacks["#{func}Result"] = &block</div>
           js = "#{func}(#{args});"
 
           @web_view.stringByEvaluatingJavaScriptFromString(js)
@@ -401,7 +450,7 @@
   <div class='code language-coffeescript'>
     <pre>
       <code>
-      square = (n) ->NativeBridge.call('squareResult', n * n)
+      square = (n) -><div class='highlighted-code'>NativeBridge.call('squareResult', n * n)</div>
       </code>
     </pre>
   </div>
@@ -452,6 +501,12 @@ end
 </section>
 
 <section class='slide'>
+  <h2 class='centered-text'>Uhm ok... can I see a movie?</h2>
+  <video width="1280" height="800" controls>
+  <source src="video/demo.mp4" type="video/mp4">
+</section>
+
+<section class='slide'>
   <h2 class='centered-text'>So this works pretty well...but</h2>
   <ul>
     <li class="slide">All data returned ends up as string</li>
@@ -466,8 +521,8 @@ end
 
 <section class='slide'>
   <h2 class='centered-text'>An example</h2>
-  <h3>https://github.com/michael-erasmus/motion-js</h3>
-  <h3>https://github.com/michael-erasmus/motion-js/tree/master/example</h3>
+  <h3>github.com/michael-erasmus/motion-js</h3>
+  <h3>github.com/michael-erasmus/motion-js/tree/master/example</h3>
 </section>
 
 <section class='slide'>
@@ -477,6 +532,10 @@ end
     <h3>impactjs.com/ejecta</h3>
   </div>
   <h3 class="slide">Unchartered territory</h3>
+</section>
+<section class='slide'>
+  <h2 class='centered-text'>An experiment</h2>
+  <h3>github.com/michael-erasmus/motion-jsc</h3>
 </section>
 
 <section class='slide'>
@@ -525,6 +584,23 @@ end
 <!-- => helps with lots of async code, functional style of programming -->
   <h2>=> Fat arrow is awesome</h2>
   <img src='images/fat-arrow.png'></img>
+</section>
+
+<section class='slide'>
+  <h1>CoffeeScript makes me happy, ok?</h1>
+</section>
+
+<section class='slide'>
+  <img src='images/surfing-in-hawaii.jpg'></img>
+</section>
+
+<section class='slide'>
+  <img src='images/teahupoo.jpg'></img>
+</section>
+
+<section class='slide centered-text'>
+  <h2>Thanks!</h2>
+  <h3>github.com/michael-erasmus/inspect-talk</h3>
 </section>
 
 <!-- End slides. -->
