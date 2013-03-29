@@ -370,7 +370,7 @@
         &lt;head&gt;
           &lt;meta charset="utf-8" / &gt;
           &lt;title&gt;WebView Document&lt;/title&gt;
-          &lt;script src='nativeBridge.js'&gt;&lt;/script&gt;
+          <div class='highlighted-code'>&lt;script src='nativeBridge.js'&gt;&lt;/script&gt;</div>
           &lt;script src='jquery.js'&gt;&lt;/script&gt;
           &lt;script src='app.js'&gt;&lt;/script&gt;
         &lt;/head&gt;
@@ -382,6 +382,26 @@
   </div>
 </section>
 
+<section class='slide'>
+  <div class='code language-html'>
+    <pre>
+      <code>
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang="en"&gt;
+        &lt;head&gt;
+          &lt;meta charset="utf-8" / &gt;
+          &lt;title&gt;WebView Document&lt;/title&gt;
+          &lt;script src='nativeBridge.js'&gt;&lt;/script&gt;
+          <div class='highlighted-code'>&lt;script src='jquery.js'&gt;&lt;/script&gt;</div>
+          <div class='highlighted-code'>&lt;script src='app.js'&gt;&lt;/script&gt;</div>
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;
+      </code>
+    </pre>
+  </div>
+</section>
 
 <section class='slide'>
   <h2 class='centered-text'>Calling JavaScript</h2>
@@ -405,8 +425,8 @@
   <div class='code language-ruby'>
     <pre class="language-ruby">
       <code>
-      @web_view.addCallBack(...)
-      <div class='highlighted-code'>@web_view.stringByEvaluatingJavaScriptFromString(js)</div>
+      <div class='highlighted-code'>@web_view.addCallBack(...)</div>
+      @web_view.stringByEvaluatingJavaScriptFromString(js)
       </code>
     </pre>
   </div>
@@ -462,8 +482,8 @@
     <pre class="language-coffeecript">
       <code>
       NativeBridge::call = (callBackId, args) ->
+        <div class='highlighted-code'>src = "js-bridge-frame::#{callBackId}::#{args}"</div>
         iframe = document.createElement "IFRAME"
-        src = "js-bridge-frame::#{callBackId}::#{args}"
         iframe.setAttribute "src", src
         document.documentElement.appendChild iframe
         iframe.parentNode.removeChild iframe
@@ -473,12 +493,31 @@
   </div>
 </section>
 
+
+<section class='slide'>
+  <h2 class='centered-text'>NativeBridge 'navigates' to URL, passing in callback + args</h2>
+  <div class='code language-coffeescript'>
+    <pre class="language-coffeecript">
+      <code>
+      NativeBridge::call = (callBackId, args) ->
+        src = "js-bridge-frame::#{callBackId}::#{args}"
+        <div class='highlighted-code'>iframe = document.createElement "IFRAME"</div>
+        <div class='highlighted-code'>iframe.setAttribute "src", src</div>
+        <div class='highlighted-code'>document.documentElement.appendChild iframe</div>
+        iframe.parentNode.removeChild iframe
+        iframe = null
+      </code>
+    </pre>
+  </div>
+</section>
+
+
 <section class='slide'>
   <h2 class='centered-text'>Back in the WebView...</h2>
   <div class='code language-ruby'>
     <pre>
       <code>
-def webView(view, shouldStartLoadWithRequest:r, navigationType:t)
+<div class='highlighted-code'>def webView(view, shouldStartLoadWithRequest:r, navigationType:t)</div>
   request = r.URL.absoluteString
 
   if(request.hasPrefix("js-bridge-frame"))
@@ -494,6 +533,53 @@ end
     </pre>
   </div>
 </section>
+
+
+<section class='slide'>
+  <h2 class='centered-text'>Back in the WebView...</h2>
+  <div class='code language-ruby'>
+    <pre>
+      <code>
+def webView(view, shouldStartLoadWithRequest:r, navigationType:t)
+  request = r.URL.absoluteString
+
+  if(request.hasPrefix("js-bridge-frame"))
+    <div class='highlighted-code'>components = request.split("::")</div>
+    <div class='highlighted-code'>callback_id, args = components[1], components[2]</div>
+
+    @callbacks[callback_id](args)
+    return false
+  end
+  true
+end
+      </code>
+    </pre>
+  </div>
+</section>
+
+
+<section class='slide'>
+  <h2 class='centered-text'>Back in the WebView...</h2>
+  <div class='code language-ruby'>
+    <pre>
+      <code>
+def webView(view, shouldStartLoadWithRequest:r, navigationType:t)
+  request = r.URL.absoluteString
+
+  if(request.hasPrefix("js-bridge-frame"))
+    components = request.split("::")
+    callback_id, args = components[1], components[2]
+
+    <div class='highlighted-code'>@callbacks[callback_id](args)</div>
+    return false
+  end
+  true
+end
+      </code>
+    </pre>
+  </div>
+</section>
+
 
 <section class='slide'>
   <h2 class='centered-text'>Phew... can I see a picture?</h2>
