@@ -266,7 +266,7 @@
   <h2>What goes into your body?</h2>
   <h3 class="slide">Anything non UI related</h3>
   <h3 class="slide">Resuable domain logic</h3>
-  <h3 class="slide">Lots of small composable functions</h3>
+  <h3 class="slide">Lots of small composable functions -> higher level functions</h3>
 </section>
 
 <section class='slide centered-text'>
@@ -356,6 +356,27 @@
           <div class='highlighted-code'>@web_view.loadRequest(request)</div>
         end
       end
+      </code>
+    </pre>
+  </div>
+</section>
+
+<section class='slide'>
+  <div class='code language-html'>
+    <pre>
+      <code>
+      &lt;!DOCTYPE html&gt;
+      &lt;html lang="en"&gt;
+        &lt;head&gt;
+          &lt;meta charset="utf-8" / &gt;
+          &lt;title&gt;WebView Document&lt;/title&gt;
+          &lt;script src='nativeBridge.js'&gt;&lt;/script&gt;
+          &lt;script src='jquery.js'&gt;&lt;/script&gt;
+          &lt;script src='app.js'&gt;&lt;/script&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+        &lt;/body&gt;
+      &lt;/html&gt;
       </code>
     </pre>
   </div>
@@ -580,6 +601,28 @@ end
   </div>
 </section>
 
+
+<section class='slide'>
+  <h2 class='centered-text'>Back in the WebView...</h2>
+  <div class='code language-ruby'>
+    <pre>
+      <code>
+def webView(view, shouldStartLoadWithRequest:r, navigationType:t)
+  request = r.URL.absoluteString
+
+  if(request.hasPrefix("js-bridge-frame"))
+    components = request.split("::")
+    callback_id, args = components[1], components[2]
+
+    callbacks[callback_id](args)
+    <div class='highlighted-code'>return false</div>
+  end
+  true
+end
+      </code>
+    </pre>
+  </div>
+</section>
 
 <section class='slide'>
   <h2 class='centered-text'>Phew... can I see a picture?</h2>
